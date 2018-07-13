@@ -5,19 +5,20 @@
   
 
   
-  <title>归档 | Giant</title>
+  <title>使用request进行抓包 | Giant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="sd">
+  <meta name="description" content="import urllibimport requestsimport operator from bs4 import BeautifulSouppage_url = “http://nba.hupu.com&amp;quot;page_req = requests.get(page_url)page_html = page_req.text print(page_html)soup = Beautifu">
 <meta name="keywords" content="sdd">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Giant">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用request进行抓包">
+<meta property="og:url" content="http://yoursite.com/2018/07/13/使用request进行抓包/index.html">
 <meta property="og:site_name" content="Giant">
-<meta property="og:description" content="sd">
+<meta property="og:description" content="import urllibimport requestsimport operator from bs4 import BeautifulSouppage_url = “http://nba.hupu.com&amp;quot;page_req = requests.get(page_url)page_html = page_req.text print(page_html)soup = Beautifu">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-13T06:31:25.840Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Giant">
-<meta name="twitter:description" content="sd">
+<meta name="twitter:title" content="使用request进行抓包">
+<meta name="twitter:description" content="import urllibimport requestsimport operator from bs4 import BeautifulSouppage_url = “http://nba.hupu.com&amp;quot;page_req = requests.get(page_url)page_html = page_req.text print(page_html)soup = Beautifu">
   
     <link rel="alternate" href="/atom.xml" title="Giant" type="application/atom+xml">
   
@@ -68,135 +69,81 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/13/Python的数字处理函数/" class="archive-article-date">
-  <time datetime="2018-07-13T08:16:02.000Z" itemprop="datePublished">7月 13</time>
+        <section id="main"><article id="post-使用request进行抓包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/13/使用request进行抓包/" class="article-date">
+  <time datetime="2018-07-13T06:31:06.000Z" itemprop="datePublished">2018-07-13</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/Python的数字处理函数/">Python的数字处理函数</a>
+    <h1 class="article-title" itemprop="name">
+      使用request进行抓包
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/13/使用request进行抓包/" class="archive-article-date">
-  <time datetime="2018-07-13T06:31:06.000Z" itemprop="datePublished">7月 13</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/使用request进行抓包/">使用request进行抓包</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/13/使用selenium进行抓包/" class="archive-article-date">
-  <time datetime="2018-07-13T06:28:25.000Z" itemprop="datePublished">7月 13</time>
-</a>
+        <p>import urllib<br>import requests<br>import operator</p>
+<p>from bs4 import BeautifulSoup<br>page_url = “<a href="http://nba.hupu.com&quot;" target="_blank" rel="noopener">http://nba.hupu.com&quot;</a><br>page_req = requests.get(page_url)<br>page_html = page_req.text</p>
+<h1 id="print-page-html"><a href="#print-page-html" class="headerlink" title="print(page_html)"></a>print(page_html)</h1><p>soup = BeautifulSoup(page_html,”html.parser”)<br>all_a = soup.find_all(“img”)<br>x =1<br>for a in all_a:</p>
+<pre><code>#print(a)
+b = a.get(&quot;src&quot;)
+b = str(b)
+if not b is None :
+    c = b[0:2]
+    d = &quot;//&quot;
+    if  d in c:
+        f = b.split(&quot;//&quot;)[-1].split(&quot;?&quot;)[0]
+        print(b)
+        print(f)
+        img_req = requests.get(&quot;http://&quot;+ f)
+        # open(&apos;images/%s.jpg&apos; % x, &apos;wb&apos;).write(img_req.content)
+        print(&quot;这是第%s张图片&quot; % x)
+    else:
+        img_req = requests.get(b)
+        # open(&apos;images/%s.jpg&apos; % x, &apos;wb&apos;).write(img_req.content)
+        print(&quot;这是第%s张图片&quot; % x)
+    x = x+1
+</code></pre>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/使用selenium进行抓包/">使用selenium进行抓包</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/13/python3连接数据库/" class="archive-article-date">
-  <time datetime="2018-07-13T06:26:52.000Z" itemprop="datePublished">7月 13</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/13/使用request进行抓包/" data-id="cjjjrmg3n00037ckue52il163" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/python3连接数据库/">python3连接数据库</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/13/搭建hexo-github博客步骤/" class="archive-article-date">
-  <time datetime="2018-07-13T03:32:03.000Z" itemprop="datePublished">7月 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/搭建hexo-github博客步骤/">搭建hexo+github博客步骤</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/13/hello-world/" class="archive-article-date">
-  <time datetime="2018-07-13T02:13:42.461Z" itemprop="datePublished">7月 13</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2018/07/13/Python的数字处理函数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python的数字处理函数
+        
+      </div>
+    </a>
   
+  
+    <a href="/2018/07/13/使用selenium进行抓包/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用selenium进行抓包</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         

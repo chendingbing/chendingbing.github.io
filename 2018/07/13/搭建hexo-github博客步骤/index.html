@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Giant">
 <meta property="og:description" content="1.安装nodejs和git2.使用npm安装Hexo    npm install -g hexo-cli3.在git上面建仓库（…git.io），开启gh-pages功能3.在博客文件夹根目录下打开终端    初始化hexo:hexo init   npm install    打开blog    hexo g（重新生成代码）      hexo  s（将代码部署到本地）         在l">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-13T06:06:23.394Z">
+<meta property="og:updated_time" content="2018-07-13T06:27:39.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建hexo+github博客步骤">
 <meta name="twitter:description" content="1.安装nodejs和git2.使用npm安装Hexo    npm install -g hexo-cli3.在git上面建仓库（…git.io），开启gh-pages功能3.在博客文件夹根目录下打开终端    初始化hexo:hexo init   npm install    打开blog    hexo g（重新生成代码）      hexo  s（将代码部署到本地）         在l">
@@ -94,11 +94,12 @@
         <p>1.安装nodejs和git<br>2.使用npm安装Hexo    npm install -g hexo-cli<br>3.在git上面建仓库（…git.io），开启gh-pages功能<br>3.在博客文件夹根目录下打开终端<br>    初始化hexo:hexo init   npm install<br>    打开blog    hexo g（重新生成代码）      hexo  s（将代码部署到本地）         在localhost:4000可以查看了<br>    对接GitHub：<br>                git init  //初始化本地仓库 会生成一个.git文件<br>                git add source scaffolds themes .gitignore _config.yml package.json //将这6个文件提交到hexo分支，这就是源文件了， source里面就是装的你的博客文章<br>                git commit -m “Blog Source Hexo”<br>                git branch hexo  //新建hexo分支<br>                git checkout hexo  //切换到hexo分支上<br>                git remote add origin <a href="https://github.com/FinGet/finget.github.io.git(换成你自己的，如下图)" target="_blank" rel="noopener">https://github.com/FinGet/finget.github.io.git(换成你自己的，如下图)</a>  //将本地与Github项目对接 很多教程说要用ssh，我这里用https也没有出错<br>                git push origin hexo  //push到Github项目的hexo分支上    </p>
 <pre><code>将代码更新到GitHub上  git clean    git g    git d（将代码部署到服务器）（若是提醒ERROR Deployer not found: git，则需要安装npm install --save hexo-deployer-git）
 修改_config.yml的配置项时，参数前面有个空格，否则会报错
+新增博客    hexo new name
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/13/搭建hexo-github博客步骤/" data-id="cjjjfglqi0000gskumhf1bwg7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/13/搭建hexo-github博客步骤/" data-id="cjjjrmg3r00057cku8i1pd5yj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -106,6 +107,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/07/13/python3连接数据库/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python3连接数据库
+        
+      </div>
+    </a>
   
   
     <a href="/2018/07/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -147,11 +157,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/13/搭建hexo-github博客步骤/">搭建hexo+github博客步骤</a>
+            <a href="/2018/07/13/Python的数字处理函数/">Python的数字处理函数</a>
           </li>
         
           <li>
-            <a href="/2018/07/13/hello-world/">Hello World</a>
+            <a href="/2018/07/13/使用request进行抓包/">使用request进行抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/13/使用selenium进行抓包/">使用selenium进行抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/13/python3连接数据库/">python3连接数据库</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/13/搭建hexo-github博客步骤/">搭建hexo+github博客步骤</a>
           </li>
         
       </ul>

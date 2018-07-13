@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>使用selenium进行抓包 | Giant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用谷歌浏览器的无界面模式获取HTML进行处理from selenium import webdriverimport timefrom selenium.webdriver.chrome.options import Optionsimport urllibimport requestsimport operatorimport xlrdimport xlutils.copy chrome_op">
+<meta name="keywords" content="sdd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用selenium进行抓包">
+<meta property="og:url" content="http://yoursite.com/2018/07/13/使用selenium进行抓包/index.html">
+<meta property="og:site_name" content="Giant">
+<meta property="og:description" content="使用谷歌浏览器的无界面模式获取HTML进行处理from selenium import webdriverimport timefrom selenium.webdriver.chrome.options import Optionsimport urllibimport requestsimport operatorimport xlrdimport xlutils.copy chrome_op">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-13T06:29:28.842Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用selenium进行抓包">
+<meta name="twitter:description" content="使用谷歌浏览器的无界面模式获取HTML进行处理from selenium import webdriverimport timefrom selenium.webdriver.chrome.options import Optionsimport urllibimport requestsimport operatorimport xlrdimport xlutils.copy chrome_op">
+  
+    <link rel="alternate" href="/atom.xml" title="Giant" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Giant</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">加油</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-使用selenium进行抓包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/13/使用selenium进行抓包/" class="article-date">
+  <time datetime="2018-07-13T06:28:25.000Z" itemprop="datePublished">2018-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用selenium进行抓包
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用谷歌浏览器的无界面模式获取HTML进行处理<br>from selenium import webdriver<br>import time<br>from selenium.webdriver.chrome.options import Options<br>import urllib<br>import requests<br>import operator<br>import xlrd<br>import xlutils.copy</p>
+<p>chrome_options = Options()<br>chrome_options.add_argument(‘–headless’)<br>chrome_options.add_argument(‘–disable-gpu’)<br>chrome_options.binary_location = r’C:\Users\chendingbing\AppData\Local\Google\Chrome\Application\chrome.exe’<br>driver = webdriver.Chrome(chrome_options=chrome_options)</p>
+<h1 id="driver-webdriver-Chrome"><a href="#driver-webdriver-Chrome" class="headerlink" title="driver = webdriver.Chrome()"></a>driver = webdriver.Chrome()</h1><p>driver.get(“<a href="http://www.aiyukemall.com/?page=4&amp;type=reco&amp;sort=0&amp;cate=0&quot;" target="_blank" rel="noopener">http://www.aiyukemall.com/?page=4&amp;type=reco&amp;sort=0&amp;cate=0&quot;</a>)<br>driver.maximize_window()<br>js=”var q=document.documentElement.scrollTop=100000”<br>driver.execute_script(js)<br>time.sleep(3)<br>js=”var q=document.documentElement.scrollTop=3600”<br>driver.execute_script(js)<br>js=”var q=document.documentElement.scrollTop=1200”<br>driver.execute_script(js)<br>js=”var q=document.documentElement.scrollTop=2400”<br>driver.execute_script(js)<br>js=”var q=document.documentElement.scrollTop=1800”<br>driver.execute_script(js)<br>time.sleep(3)</p>
+<h1 id="pageSource-driver-page-source"><a href="#pageSource-driver-page-source" class="headerlink" title="pageSource = driver.page_source"></a>pageSource = driver.page_source</h1><h1 id="print-pageSource"><a href="#print-pageSource" class="headerlink" title="print(pageSource)"></a>print(pageSource)</h1><p>mall_file = xlrd.open_workbook(‘excel/mall.xls’, formatting_info=True)<br>wt_mall = xlutils.copy.copy(mall_file)<br>wt_sheet = wt_mall.get_sheet(0)<br>price = []<br>prices = driver.find_elements_by_class_name(“pri”)<br>for x in prices:<br>    if x.text == “”:<br>        pass<br>    else:<br>        price.append(x.text)<br>for i in range(0,40):</p>
+<pre><code>title = driver.find_elements_by_css_selector(&quot;.title&quot;)[i].text
+buy_number = driver.find_elements_by_css_selector(&quot;.buy-number&quot;)[i].text
+image = driver.find_elements_by_class_name(&quot;img&quot;)[i].find_element_by_class_name(&quot;lazy&quot;).get_attribute(&quot;src&quot;)
+title = title.split(buy_number)[0]
+y = i
+i = i+1+120
+wt_sheet.write(i, 0, title)
+wt_sheet.write(i, 2, buy_number)
+wt_sheet.write(i, 3, image)
+wt_sheet.write(i, 1, price[y])
+</code></pre><h1 id="wt-mall-save-‘excel-mall-xls’"><a href="#wt-mall-save-‘excel-mall-xls’" class="headerlink" title="wt_mall.save(‘excel/mall.xls’)"></a>wt_mall.save(‘excel/mall.xls’)</h1><h1 id="print-title"><a href="#print-title" class="headerlink" title="print(title)"></a>print(title)</h1><h1 id="print-image"><a href="#print-image" class="headerlink" title="print(image)"></a>print(image)</h1><h1 id="print-buy-number"><a href="#print-buy-number" class="headerlink" title="print(buy_number)"></a>print(buy_number)</h1><p>wt_mall.save(‘excel/mall.xls’)<br>driver.quit()</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/13/使用selenium进行抓包/" data-id="cjjjrmg3p00047ckuwvl0xjc5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/13/使用request进行抓包/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          使用request进行抓包
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/13/python3连接数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python3连接数据库</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/13/Python的数字处理函数/">Python的数字处理函数</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/13/使用request进行抓包/">使用request进行抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/13/使用selenium进行抓包/">使用selenium进行抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/13/python3连接数据库/">python3连接数据库</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/13/搭建hexo-github博客步骤/">搭建hexo+github博客步骤</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 兵哥<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -70,6 +70,195 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python的数字处理函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/13/Python的数字处理函数/" class="article-date">
+  <time datetime="2018-07-13T08:16:02.000Z" itemprop="datePublished">2018-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/Python的数字处理函数/">Python的数字处理函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>int()取整数部分和//整除一样<br>import math   math.floor()地板     math.ceil()天花板    math.round()四舍六入五取偶<br>min()   max()  paw(x,y)等于x**y   math.sqrt()开方     math.pi π       math.e</p>
+<p>type() 返回类型</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/13/Python的数字处理函数/" data-id="cjjjrmg3800007ckuhmy28044" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-使用request进行抓包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/13/使用request进行抓包/" class="article-date">
+  <time datetime="2018-07-13T06:31:06.000Z" itemprop="datePublished">2018-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/使用request进行抓包/">使用request进行抓包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>import urllib<br>import requests<br>import operator</p>
+<p>from bs4 import BeautifulSoup<br>page_url = “<a href="http://nba.hupu.com&quot;" target="_blank" rel="noopener">http://nba.hupu.com&quot;</a><br>page_req = requests.get(page_url)<br>page_html = page_req.text</p>
+<h1 id="print-page-html"><a href="#print-page-html" class="headerlink" title="print(page_html)"></a>print(page_html)</h1><p>soup = BeautifulSoup(page_html,”html.parser”)<br>all_a = soup.find_all(“img”)<br>x =1<br>for a in all_a:</p>
+<pre><code>#print(a)
+b = a.get(&quot;src&quot;)
+b = str(b)
+if not b is None :
+    c = b[0:2]
+    d = &quot;//&quot;
+    if  d in c:
+        f = b.split(&quot;//&quot;)[-1].split(&quot;?&quot;)[0]
+        print(b)
+        print(f)
+        img_req = requests.get(&quot;http://&quot;+ f)
+        # open(&apos;images/%s.jpg&apos; % x, &apos;wb&apos;).write(img_req.content)
+        print(&quot;这是第%s张图片&quot; % x)
+    else:
+        img_req = requests.get(b)
+        # open(&apos;images/%s.jpg&apos; % x, &apos;wb&apos;).write(img_req.content)
+        print(&quot;这是第%s张图片&quot; % x)
+    x = x+1
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/13/使用request进行抓包/" data-id="cjjjrmg3n00037ckue52il163" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-使用selenium进行抓包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/13/使用selenium进行抓包/" class="article-date">
+  <time datetime="2018-07-13T06:28:25.000Z" itemprop="datePublished">2018-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/使用selenium进行抓包/">使用selenium进行抓包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用谷歌浏览器的无界面模式获取HTML进行处理<br>from selenium import webdriver<br>import time<br>from selenium.webdriver.chrome.options import Options<br>import urllib<br>import requests<br>import operator<br>import xlrd<br>import xlutils.copy</p>
+<p>chrome_options = Options()<br>chrome_options.add_argument(‘–headless’)<br>chrome_options.add_argument(‘–disable-gpu’)<br>chrome_options.binary_location = r’C:\Users\chendingbing\AppData\Local\Google\Chrome\Application\chrome.exe’<br>driver = webdriver.Chrome(chrome_options=chrome_options)</p>
+<h1 id="driver-webdriver-Chrome"><a href="#driver-webdriver-Chrome" class="headerlink" title="driver = webdriver.Chrome()"></a>driver = webdriver.Chrome()</h1><p>driver.get(“<a href="http://www.aiyukemall.com/?page=4&amp;type=reco&amp;sort=0&amp;cate=0&quot;" target="_blank" rel="noopener">http://www.aiyukemall.com/?page=4&amp;type=reco&amp;sort=0&amp;cate=0&quot;</a>)<br>driver.maximize_window()<br>js=”var q=document.documentElement.scrollTop=100000”<br>driver.execute_script(js)<br>time.sleep(3)<br>js=”var q=document.documentElement.scrollTop=3600”<br>driver.execute_script(js)<br>js=”var q=document.documentElement.scrollTop=1200”<br>driver.execute_script(js)<br>js=”var q=document.documentElement.scrollTop=2400”<br>driver.execute_script(js)<br>js=”var q=document.documentElement.scrollTop=1800”<br>driver.execute_script(js)<br>time.sleep(3)</p>
+<h1 id="pageSource-driver-page-source"><a href="#pageSource-driver-page-source" class="headerlink" title="pageSource = driver.page_source"></a>pageSource = driver.page_source</h1><h1 id="print-pageSource"><a href="#print-pageSource" class="headerlink" title="print(pageSource)"></a>print(pageSource)</h1><p>mall_file = xlrd.open_workbook(‘excel/mall.xls’, formatting_info=True)<br>wt_mall = xlutils.copy.copy(mall_file)<br>wt_sheet = wt_mall.get_sheet(0)<br>price = []<br>prices = driver.find_elements_by_class_name(“pri”)<br>for x in prices:<br>    if x.text == “”:<br>        pass<br>    else:<br>        price.append(x.text)<br>for i in range(0,40):</p>
+<pre><code>title = driver.find_elements_by_css_selector(&quot;.title&quot;)[i].text
+buy_number = driver.find_elements_by_css_selector(&quot;.buy-number&quot;)[i].text
+image = driver.find_elements_by_class_name(&quot;img&quot;)[i].find_element_by_class_name(&quot;lazy&quot;).get_attribute(&quot;src&quot;)
+title = title.split(buy_number)[0]
+y = i
+i = i+1+120
+wt_sheet.write(i, 0, title)
+wt_sheet.write(i, 2, buy_number)
+wt_sheet.write(i, 3, image)
+wt_sheet.write(i, 1, price[y])
+</code></pre><h1 id="wt-mall-save-‘excel-mall-xls’"><a href="#wt-mall-save-‘excel-mall-xls’" class="headerlink" title="wt_mall.save(‘excel/mall.xls’)"></a>wt_mall.save(‘excel/mall.xls’)</h1><h1 id="print-title"><a href="#print-title" class="headerlink" title="print(title)"></a>print(title)</h1><h1 id="print-image"><a href="#print-image" class="headerlink" title="print(image)"></a>print(image)</h1><h1 id="print-buy-number"><a href="#print-buy-number" class="headerlink" title="print(buy_number)"></a>print(buy_number)</h1><p>wt_mall.save(‘excel/mall.xls’)<br>driver.quit()</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/13/使用selenium进行抓包/" data-id="cjjjrmg3p00047ckuwvl0xjc5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python3连接数据库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/13/python3连接数据库/" class="article-date">
+  <time datetime="2018-07-13T06:26:52.000Z" itemprop="datePublished">2018-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/python3连接数据库/">python3连接数据库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先用pip安装pymysql<br>import pymysql</p>
+<h1 id="打开数据库连接"><a href="#打开数据库连接" class="headerlink" title="打开数据库连接"></a>打开数据库连接</h1><p>db = pymysql.connect(host=’172.29.5.71’, port=3306, user=’admin’, passwd=’12345678’,db=’test’)</p>
+<h1 id="使用-cursor-方法创建一个游标对象-cursor"><a href="#使用-cursor-方法创建一个游标对象-cursor" class="headerlink" title="使用 cursor() 方法创建一个游标对象 cursor"></a>使用 cursor() 方法创建一个游标对象 cursor</h1><p>cursor = db.cursor()</p>
+<h1 id="使用-execute-方法执行-SQL-查询"><a href="#使用-execute-方法执行-SQL-查询" class="headerlink" title="使用 execute()  方法执行 SQL 查询"></a>使用 execute()  方法执行 SQL 查询</h1><p>cursor.execute(“SELECT VERSION()”)</p>
+<h1 id="使用-fetchone-方法获取单条数据"><a href="#使用-fetchone-方法获取单条数据" class="headerlink" title="使用 fetchone() 方法获取单条数据."></a>使用 fetchone() 方法获取单条数据.</h1><p>data = cursor.fetchone()</p>
+<p>print(“Database version : %s “ % data)</p>
+<h1 id="关闭数据库连接"><a href="#关闭数据库连接" class="headerlink" title="关闭数据库连接"></a>关闭数据库连接</h1><p>db.close()</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/13/python3连接数据库/" data-id="cjjjrmg3g00017cku4yc433rk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-搭建hexo-github博客步骤" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/13/搭建hexo-github博客步骤/" class="article-date">
@@ -95,11 +284,12 @@
         <p>1.安装nodejs和git<br>2.使用npm安装Hexo    npm install -g hexo-cli<br>3.在git上面建仓库（…git.io），开启gh-pages功能<br>3.在博客文件夹根目录下打开终端<br>    初始化hexo:hexo init   npm install<br>    打开blog    hexo g（重新生成代码）      hexo  s（将代码部署到本地）         在localhost:4000可以查看了<br>    对接GitHub：<br>                git init  //初始化本地仓库 会生成一个.git文件<br>                git add source scaffolds themes .gitignore _config.yml package.json //将这6个文件提交到hexo分支，这就是源文件了， source里面就是装的你的博客文章<br>                git commit -m “Blog Source Hexo”<br>                git branch hexo  //新建hexo分支<br>                git checkout hexo  //切换到hexo分支上<br>                git remote add origin <a href="https://github.com/FinGet/finget.github.io.git(换成你自己的，如下图)" target="_blank" rel="noopener">https://github.com/FinGet/finget.github.io.git(换成你自己的，如下图)</a>  //将本地与Github项目对接 很多教程说要用ssh，我这里用https也没有出错<br>                git push origin hexo  //push到Github项目的hexo分支上    </p>
 <pre><code>将代码更新到GitHub上  git clean    git g    git d（将代码部署到服务器）（若是提醒ERROR Deployer not found: git，则需要安装npm install --save hexo-deployer-git）
 修改_config.yml的配置项时，参数前面有个空格，否则会报错
+新增博客    hexo new name
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/13/搭建hexo-github博客步骤/" data-id="cjjjfglqi0000gskumhf1bwg7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/13/搭建hexo-github博客步骤/" data-id="cjjjrmg3r00057cku8i1pd5yj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/13/hello-world/" data-id="cjjjfglqt0001gskudrn9ymyu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/13/hello-world/" data-id="cjjjrmg3k00027cku1winqyvc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -185,11 +375,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/13/搭建hexo-github博客步骤/">搭建hexo+github博客步骤</a>
+            <a href="/2018/07/13/Python的数字处理函数/">Python的数字处理函数</a>
           </li>
         
           <li>
-            <a href="/2018/07/13/hello-world/">Hello World</a>
+            <a href="/2018/07/13/使用request进行抓包/">使用request进行抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/13/使用selenium进行抓包/">使用selenium进行抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/13/python3连接数据库/">python3连接数据库</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/13/搭建hexo-github博客步骤/">搭建hexo+github博客步骤</a>
           </li>
         
       </ul>
